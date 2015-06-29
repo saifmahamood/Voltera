@@ -81,16 +81,35 @@ public:
 	regularOctagon();
 
 	void contract(double distance) {
+
+		Point v1;
+		v1.x = abs(this->vertices[0].x - this->vertices[1].x);
+		v1.y = abs(this->vertices[0].y - this->vertices[1].y); 
+		double lengthEdge = modulus(v1);
+
+		double sideChange = sqrt(lengthEdge/distance);
+
 		for (int i = 0; i < vertices.size(); ++i)
 		{
-			this->vertices[i].x /= distance;
-			this->vertices[i].y /= distance;
+			this->vertices[i].x /= sideChange;
+			this->vertices[i].y /= sideChange;
 		}
 	}
 	~regularOctagon();
 
 	/* data */
 };
+
+
+/* test cases
+For the point in polygon, I will make sure to test for whether the point is
+outside, inside and on the edges of the polygon. 
+
+As for the contract method, I will calculate the area of the old and new polygon
+and check if it's the expected reduction 
+*/
+
+
 
 int main(void) {
 	return 0;
