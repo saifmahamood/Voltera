@@ -1,0 +1,10 @@
+bugs:
+- doesn't seem to be any field in the class for "cycle_running"
+- Same case for port_lock
+
+Design: 
+- Too many methods for speed manipulation. One works just fine for increase/decrease.
+- For max speed method, instead of calculating it every time we could specify a field 
+  for the maximum speed and potentially update it every time a new speed is recorded.
+  This way it would take O(1) time as opposed to O(N) right now.
+- Same for Avg speeds
